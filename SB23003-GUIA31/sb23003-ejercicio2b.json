@@ -1,0 +1,26 @@
+{
+  "pais": {
+    "departamento": [
+      {
+        "cabecera": "San Salvador",
+        "habitantes": "1,700,000",
+        "altura": "545 MSNM"
+      },
+      {
+        "cabecera": "Santa Tecla",
+        "habitantes": "765,879",
+        "altura": "700 MSNM"
+      },
+      {
+        "cabecera": "San Miguel",
+        "habitantes": "540,000",
+        "altura": "250 MSNM"
+      }
+    ],
+    "moneda": "Dolar Estadounidense",
+    "codigoTelefono": 503,
+    "idiomaOficial": "Español",
+    "idiomaAutoctono": "Nahuat",
+    "superficie": "21,041 KM2"
+  }
+}
