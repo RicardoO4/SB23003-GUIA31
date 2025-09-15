@@ -1,0 +1,129 @@
+
+*{box-sizing:border-box}
+
+:root{
+  --bg:#f6f7fb;
+  --card:#ffffff;
+  --text:#1f2937;
+  --muted:#6b7280;
+  --accent:#2563eb;
+  --border:#e5e7eb;
+  --badge-bg:#eef2ff;
+  --badge-text:#3730a3;
+  --shadow:0 8px 22px rgba(0,0,0,.06);
+}
+
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0b0f14;
+    --card:#0f1620;
+    --text:#e5e7eb;
+    --muted:#9aa4b2;
+    --accent:#60a5fa;
+    --border:#1f2a37;
+    --badge-bg:#152238;
+    --badge-text:#bfdbfe;
+    --shadow:0 8px 24px rgba(0,0,0,.35);
+  }
+}
+
+pais{
+  display:block;
+  font:15px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Inter,"Helvetica Neue",Arial,"Noto Sans","Apple Color Emoji","Segoe UI Emoji";
+  color:var(--text);
+  background:var(--bg);
+  padding:clamp(16px,3vw,40px);
+}
+
+pais::before{
+  content:"País: " attr(nombre);
+  display:block;
+  font-weight:700;
+  letter-spacing:.2px;
+  font-size:clamp(18px,2.5vw,22px);
+  margin:0 0 14px 2px;
+  color:var(--muted);
+}
+
+departamento{
+  display:block;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:18px 18px 14px;
+  margin:12px 0;
+  box-shadow:var(--shadow);
+  transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;
+}
+
+departamento:hover{
+  transform:translateY(-2px);
+  box-shadow:0 16px 36px rgba(0,0,0,.12);
+  border-color:color-mix(in oklab,var(--border) 70%,var(--accent));
+}
+
+departamento::before{
+  content:"Depto " attr(id) "  •  " attr(nombre);
+  display:inline-block;
+  font-size:12px;
+  font-weight:600;
+  color:var(--badge-text);
+  background:var(--badge-bg);
+  border:1px solid var(--border);
+  padding:6px 10px;
+  border-radius:999px;
+  margin-bottom:12px;
+}
+
+departamento>*{margin:0}
+
+departamento{
+  display:grid;
+  grid-template-columns:1fr;
+  row-gap:8px;
+}
+
+cabecera{
+  display:block;
+  font-size:clamp(18px,2.4vw,20px);
+  font-weight:700;
+  letter-spacing:.2px;
+}
+
+habitantes,altura{
+  display:block;
+  font-size:14px;
+  color:var(--muted);
+}
+
+habitantes::before{content:"👥 ";opacity:.85}
+altura::before{content:"⛰️ ";opacity:.85}
+
+moneda,codigoTelefono,idiomaOficial,idiomaAutoctono,superficie{
+  display:inline-block;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:999px;
+  padding:6px 10px;
+  margin:8px 6px 0 0;
+  font-size:12px;
+  color:var(--muted);
+}
+
+moneda::before{content:"Moneda: "}
+codigoTelefono::before{content:"Tel: "}
+idiomaOficial::before{content:"Idioma: "}
+idiomaAutoctono::before{content:"Autóctono: "}
+superficie::before{content:"Superficie: "}
+
+@media (min-width:720px){
+  pais{max-width:820px;margin-inline:auto}
+  departamento{padding:20px 22px 16px;margin:14px 0}
+}
+
+departamento:focus{
+  outline:2px solid color-mix(in oklab,var(--accent) 65%,white);
+  outline-offset:3px;
+  border-color:var(--accent);
+}
+
